@@ -1,18 +1,17 @@
 mod helpers;
 use helpers::*;
 
-use mini_redis::{client, Result};
 use std::str::{self};
 
-use tracing::{debug, info, span, warn, Level};
+use tracing::{debug, info, span, Level};
 
 #[tracing::instrument(ret, level=Level::TRACE)]
 async fn hello_string<'life>() -> &'life str {
-    return "hello world";
+    return "hello world 🦀";
 }
 
 #[tokio::main]
-async fn main() -> Result<()> {
+async fn main()  {
     //https://docs.rs/spinners/latest/spinners/struct.Spinner.html
     //https://docs.rs/clap/latest/clap/_derive/_tutorial/index.html
     let _guard = init_tracing(true, Level::TRACE);
@@ -23,28 +22,7 @@ async fn main() -> Result<()> {
     let span = span!(Level::INFO, "main");
     let _guard = span.enter();
 
-    // Open a connection to the mini-redis address (start mini-redis-server)
-    // TODO: replace by https://docs.rs/redis/latest/redis/
-    let mut client = client::connect("127.0.0.1:6379").await?;
-
-    // Set the key "hello" with value "world"
-    client.set("hello", "world!".into()).await?;
-
-    // Get key "hello"
-    let result = client.get("hello").await?;
-
-    match result {
-        Some(val) => {
-            let val_str = str::from_utf8(&val).unwrap();
-            info!("got value from the server; result={:?}", val_str);
-        }
-        None => {
-            warn!("No result!");
-        }
-    }
-
     let res = op.await;
     info!("{}", res);
 
-    Ok(())
 }
