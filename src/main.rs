@@ -1,5 +1,5 @@
-mod trace;
-use trace::init_tracing;
+mod helpers;
+use helpers::*;
 
 use mini_redis::{client, Result};
 use std::str::{self};
@@ -24,6 +24,7 @@ async fn main() -> Result<()> {
     let _guard = span.enter();
 
     // Open a connection to the mini-redis address (start mini-redis-server)
+    // TODO: replace by https://docs.rs/redis/latest/redis/
     let mut client = client::connect("127.0.0.1:6379").await?;
 
     // Set the key "hello" with value "world"
