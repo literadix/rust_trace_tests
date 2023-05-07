@@ -26,5 +26,5 @@ pub fn init_tracing(
         .with_thread_names(true)
         .init();
 
-    return guard;
+    guard
 }

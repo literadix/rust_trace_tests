@@ -1,12 +1,8 @@
-2023-05-07T20:10:33.254739Z DEBUG main ThreadId(01) something happened inside my_span
-2023-05-07T20:10:33.254891Z TRACE main ThreadId(01) main:hello_string: return="hello world 🦀 ❤ ❤\u{fe0f}翿"
-2023-05-07T20:10:33.254949Z  INFO main ThreadId(01) main: hello world 🦀 ❤ ❤️翿
-2023-05-07T20:10:33.254977Z  INFO main ThreadId(01) main: 340282366920938463463374607431768211455
-2023-05-07T20:24:54.673299Z DEBUG main ThreadId(01) something happened inside my_span
-2023-05-07T20:24:54.673603Z TRACE main ThreadId(01) main:hello_string: return="hello world 🦀 ❤ ❤\u{fe0f}翿"
-2023-05-07T20:24:54.673723Z  INFO main ThreadId(01) main: hello world 🦀 ❤ ❤️翿
-2023-05-07T20:24:54.673767Z  INFO main ThreadId(01) main: 340282366920938463463374607431768211455
-2023-05-07T20:32:44.576916Z DEBUG main ThreadId(01) something happened inside my_span
-2023-05-07T20:32:44.577149Z TRACE main ThreadId(01) main:hello_string: return="hello world 🦀 ❤ ❤\u{fe0f}翿"
-2023-05-07T20:32:44.577234Z  INFO main ThreadId(01) main: hello world 🦀 ❤ ❤️翿
-2023-05-07T20:32:44.577259Z  INFO main ThreadId(01) main: 340282366920938463463374607431768211455
+2023-05-07T20:35:17.680749Z DEBUG main ThreadId(01) something happened inside my_span
+2023-05-07T20:35:17.681047Z TRACE main ThreadId(01) main:hello_string: return="hello world 🦀 ❤ ❤\u{fe0f}翿"
+2023-05-07T20:35:17.681161Z  INFO main ThreadId(01) main: hello world 🦀 ❤ ❤️翿
+2023-05-07T20:35:17.681223Z  INFO main ThreadId(01) main: 340282366920938463463374607431768211455
+2023-05-07T20:36:09.280964Z DEBUG main ThreadId(01) something happened inside my_span
+2023-05-07T20:36:09.281254Z TRACE main ThreadId(01) main:hello_string: return="hello world 🦀 ❤ ❤\u{fe0f}翿"
+2023-05-07T20:36:09.281339Z  INFO main ThreadId(01) main: hello world 🦀 ❤ ❤️翿
+2023-05-07T20:36:09.281355Z  INFO main ThreadId(01) main: 340282366920938463463374607431768211455
