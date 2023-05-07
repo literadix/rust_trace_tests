@@ -1,3 +1,6 @@
+//! Helper functions
+
+/// Initialize tracing
 pub fn init_tracing(
     stdout: bool,
     filter: tracing::Level,
