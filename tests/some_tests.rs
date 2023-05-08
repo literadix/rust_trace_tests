@@ -1,14 +1,14 @@
 #[derive(Debug, Copy, Clone, PartialEq)]
-struct Centimeters(u64);
+struct Centimeters{val:u64}
 
 // This function will ne used as function pointer
 fn add_one(x: Centimeters) -> Centimeters {
-    x + Centimeters(1)
+    x + Centimeters{val:1}
 }
 
 /// Define max function
 fn max(x: Centimeters, y: Centimeters) -> Centimeters {
-    if x.0 > y.0 {
+    if x.val > y.val {
         x
     } else {
         y
@@ -19,7 +19,7 @@ fn max(x: Centimeters, y: Centimeters) -> Centimeters {
 impl ::core::ops::Add for Centimeters {
     type Output = Centimeters;
     fn add(self, rhs: Centimeters) -> Centimeters {
-        Centimeters(self.0 + rhs.0)
+        Centimeters{val:self.val + rhs.val}
     }
 }
 
@@ -27,7 +27,7 @@ impl ::core::ops::Add for Centimeters {
 impl ::core::ops::Sub for Centimeters {
     type Output = Centimeters;
     fn sub(self, rhs: Centimeters) -> Centimeters {
-        Centimeters(self.0 - rhs.0)
+        Centimeters{val:self.val - rhs.val}
     }
 }
 
@@ -37,26 +37,26 @@ mod test {
     #[test]
     fn test_function_pointer() {
         let ptr: fn(Centimeters) -> Centimeters = add_one;
-        let before = Centimeters(5);
-        let wanted = Centimeters(6);
+        let before = Centimeters{val:5};
+        let wanted = Centimeters{val:6};
 
         assert_eq!(ptr(before), wanted);
-        assert_eq!(ptr(before) + before, Centimeters(11));
+        assert_eq!(ptr(before) + before, Centimeters{val:11});
     }
 
     #[test]
     fn test_addition() {
-        assert_eq!(Centimeters(5) + Centimeters(1), Centimeters(6));
+        assert_eq!(Centimeters{val:5} + Centimeters{val:1}, Centimeters{val:6});
     }
 
     #[test]
     fn test_substraction() {
-        assert_eq!(Centimeters(5) - Centimeters(1), Centimeters(4));
+        assert_eq!(Centimeters{val:5} - Centimeters{val:1}, Centimeters{val:4});
     }
 
     #[test]
     fn test_max() {
-        assert_eq!(max(Centimeters(1), Centimeters(2)), Centimeters(2));
+        assert_eq!(max(Centimeters{val:1}, Centimeters{val:2}), Centimeters{val:2});
     }
 
     #[test]
