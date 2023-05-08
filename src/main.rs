@@ -7,7 +7,7 @@ use tracing::{debug, info, span, Level};
 
 #[tracing::instrument(ret, level=Level::TRACE)]
 async fn hello_string<'life>() -> &'life str {
-    "hello world 🦀 ❤ ❤️\u{7fff}"
+    "hello world 🦀 ❤ ❤️ ☮ \u{7fff}"
 }
 
 #[tokio::main]
