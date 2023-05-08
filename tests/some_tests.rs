@@ -1,9 +1,11 @@
 #[derive(Debug, Copy, Clone, PartialEq)]
-struct Centimeters{val:u64}
+struct Centimeters {
+    val: u64,
+}
 
 // This function will ne used as function pointer
 fn add_one(x: Centimeters) -> Centimeters {
-    x + Centimeters{val:1}
+    x + Centimeters { val: 1 }
 }
 
 /// Define max function
@@ -19,7 +21,9 @@ fn max(x: Centimeters, y: Centimeters) -> Centimeters {
 impl ::core::ops::Add for Centimeters {
     type Output = Centimeters;
     fn add(self, rhs: Centimeters) -> Centimeters {
-        Centimeters{val:self.val + rhs.val}
+        Centimeters {
+            val: self.val + rhs.val,
+        }
     }
 }
 
@@ -27,7 +31,9 @@ impl ::core::ops::Add for Centimeters {
 impl ::core::ops::Sub for Centimeters {
     type Output = Centimeters;
     fn sub(self, rhs: Centimeters) -> Centimeters {
-        Centimeters{val:self.val - rhs.val}
+        Centimeters {
+            val: self.val - rhs.val,
+        }
     }
 }
 
@@ -37,26 +43,35 @@ mod test {
     #[test]
     fn test_function_pointer() {
         let ptr: fn(Centimeters) -> Centimeters = add_one;
-        let before = Centimeters{val:5};
-        let wanted = Centimeters{val:6};
+        let before = Centimeters { val: 5 };
+        let wanted = Centimeters { val: 6 };
 
         assert_eq!(ptr(before), wanted);
-        assert_eq!(ptr(before) + before, Centimeters{val:11});
+        assert_eq!(ptr(before) + before, Centimeters { val: 11 });
     }
 
     #[test]
     fn test_addition() {
-        assert_eq!(Centimeters{val:5} + Centimeters{val:1}, Centimeters{val:6});
+        assert_eq!(
+            Centimeters { val: 5 } + Centimeters { val: 1 },
+            Centimeters { val: 6 }
+        );
     }
 
     #[test]
     fn test_substraction() {
-        assert_eq!(Centimeters{val:5} - Centimeters{val:1}, Centimeters{val:4});
+        assert_eq!(
+            Centimeters { val: 5 } - Centimeters { val: 1 },
+            Centimeters { val: 4 }
+        );
     }
 
     #[test]
     fn test_max() {
-        assert_eq!(max(Centimeters{val:1}, Centimeters{val:2}), Centimeters{val:2});
+        assert_eq!(
+            max(Centimeters { val: 1 }, Centimeters { val: 2 }),
+            Centimeters { val: 2 }
+        );
     }
 
     #[test]
@@ -66,6 +81,19 @@ mod test {
             println!("{}", num)
         }
         for num in numbers.iter_mut() {
+            println!("{}", num)
+        }
+    }
+
+    #[test]
+    fn test_slices() {
+        let mut nums = vec![1, 2, 3, 4, 5];
+        let num_slice = &mut nums[..]; // make a slice out of the Vector
+
+        for num in num_slice.iter() {
+            println!("{}", num)
+        }
+        for num in num_slice.iter_mut() {
             println!("{}", num)
         }
     }
