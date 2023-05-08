@@ -7,8 +7,12 @@ fn add_one(x: Centimeters) -> Centimeters {
 }
 
 /// Define max function
-fn max(x :Centimeters, y : Centimeters ) -> Centimeters {
-    if x.0 > y.0 {x} else {y}
+fn max(x: Centimeters, y: Centimeters) -> Centimeters {
+    if x.0 > y.0 {
+        x
+    } else {
+        y
+    }
 }
 
 /// Define add operation for Centimeter
@@ -52,7 +56,17 @@ mod test {
 
     #[test]
     fn test_max() {
-        assert_eq!(max(Centimeters(1),Centimeters(2)), Centimeters(2));
+        assert_eq!(max(Centimeters(1), Centimeters(2)), Centimeters(2));
     }
 
+    #[test]
+    fn test_iter() {
+        let mut numbers = vec![1, 2, 3];
+        for num in numbers.iter() {
+            println!("{}", num)
+        }
+        for num in numbers.iter_mut() {
+            println!("{}", num)
+        }
+    }
 }
