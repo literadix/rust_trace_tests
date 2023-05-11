@@ -61,8 +61,8 @@ mod test {
     #[test]
     fn test_substraction() {
         assert_eq!(
-            Centimeters { val: 5 } - Centimeters { val: 1 },
-            Centimeters { val: 4 }
+            Centimeters { val: 5 } - Centimeters { val: 2 },
+            Centimeters { val: 3 }
         );
     }
 
