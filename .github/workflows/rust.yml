@@ -16,12 +16,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: Cache build artifacts
       uses: actions/cache@v2
       with:
         path: |
-          **/target    
+          **/target
+        key: ${{ runner.os }}-targets
 
     - name: Build
       run: cargo build --verbose
