@@ -5,13 +5,17 @@
 </a>
 
 
-My private example how to use tracing, logging and testing in rust.
-Feel free to play with it and copy code to your projects.
-Merge requests, comments etc are welcome.
+My example how to use tracing, logging and testing in rust. Feel free to play with it and copy code to your projects. Merge requests, comments etc are welcome. Please note that this is just a functional example. Nothing special, just to demonstrate how to use tracing and get more insights. You probably need to add some switches to make it more configurable.
+
+<a href="https://docs.rs/tracing/latest/tracing/">
+  <img src="https://raw.githubusercontent.com/tokio-rs/tracing/master/assets/logo-type.png" height="100" alt="Rust Tracing library">
+</a>
+
+## Usage example shown in this code
 
 > let _guard = init_tracing(true, Level::TRACE);
 
-```
+```bash
 cargo run                   
     Finished dev [unoptimized + debuginfo] target(s) in 0.16s
      Running `target\debug\test_tokio.exe`
@@ -26,7 +30,7 @@ Or when switched to file output:
 > let _guard = init_tracing(false, Level::TRACE);
 
 
-```
+```bash
 cargo run
    Compiling test_tokio v0.1.0 (C:\Users\Maciej Bednarz\projects\rust\test_tokio)
     Finished dev [unoptimized + debuginfo] target(s) in 1.52s
@@ -43,7 +47,7 @@ cat logs/service.log.2023-05-11
 
 Implemented by this function:
 
-```
+```rust
 /// Initialize tracing
 pub fn init_tracing(
     stdout: bool,
@@ -76,7 +80,15 @@ pub fn init_tracing(
 
 Usage example:
 
+```toml
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+tracing-appender = "0.2.2"
 ```
+
+```rust
 mod helpers;
 use helpers::*;
 
