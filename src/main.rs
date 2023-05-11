@@ -12,8 +12,7 @@ async fn hello_string<'life>() -> &'life str {
 
 #[tokio::main]
 async fn main() {
-    //https://docs.rs/spinners/latest/spinners/struct.Spinner.html
-    //https://docs.rs/clap/latest/clap/_derive/_tutorial/index.html
+
     let _guard = init_tracing(true, Level::TRACE);
     let op = hello_string();
 
