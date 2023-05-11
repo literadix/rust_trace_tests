@@ -13,7 +13,9 @@ async fn hello_string<'life>() -> &'life str {
 #[tokio::main]
 async fn main() {
 
+    // It is importand to return the guard, otherwise there will be no output
     let _guard = init_tracing(true, Level::TRACE);
+                           
     let op = hello_string();
 
     // records an event within "my_span".
